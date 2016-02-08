@@ -29,6 +29,4 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 VOLUME ["/var/lib/tftpboot/", "/usr/share/nginx/html/"]
 
-EXPOSE 8888 69
-
 CMD ["/bin/bash", "/startup.sh"]
