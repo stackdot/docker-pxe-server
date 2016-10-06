@@ -6,9 +6,9 @@ You must mount your pxeconfig folder for it to work. Also, nginx is installed an
 
 ### To run:
 
-	docker run -d --privileged=true --net=host --restart=always -v /tftfiles/:/var/lib/tftpboot/ -v /nginx-files/:/usr/share/nginx/html/ stackdot/docker-pxe-server:latest
+	docker run -d -p 8888:8888/tcp -p 69:69/udp --cap-add=NET_ADMIN -v /tftfiles/:/var/lib/tftpboot/ -v /nginx-files/:/usr/share/nginx/html/ stackdot/docker-pxe-server:latest
 
-Must be run as privileged and with net=host. This is due to the PXE service.
+Must be run with cap-add=NET_ADMIN. This is due to the PXE service.
 
 #### Just an FYI:
 - PXE runs on port 69
